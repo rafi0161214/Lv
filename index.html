@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💖</title>
+<!-- Cute font -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Baloo 2', sans-serif; /* Cute, normal font */
+    background: linear-gradient(135deg, #ffb6c1, #ffd6e8);
+    overflow-x: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+.page {
+    display: none;
+    padding: 60px 20px;
+    min-height: 100vh;
+}
+
+.active {
+    display: block;
+}
+
+h1 {
+    font-size: 2.3em;
+    text-shadow: 0 0 10px pink;
+}
+
+p {
+    font-size: 1.3em;
+    line-height: 1.7;
+    margin-top: 25px;
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    background: #ff5e8e;
+    color: white;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+#no {
+    position: absolute;
+}
+
+.heart {
+    position: fixed;
+    font-size: 22px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    from { bottom: -20px; opacity: 1; }
+    to { bottom: 100%; opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active">
+<h1>🌸 Hey… can you stop for a moment?</h1>
+<p>I want to tell you a small story…  
+A story that slowly became my heart.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+<h1>✨ Once upon a random moment</h1>
+<p>I didn’t know that a single person  
+could change the way my world feels.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+<h1>🌙 You appeared like a soft dream</h1>
+<p>Quiet… gentle… and strangely comforting.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+<h1>💗 My heart noticed you first</h1>
+<p>Before my mind could understand anything.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+<h1>🌸 Every small moment became special</h1>
+<p>Your smile, your words, even your silence.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+<h1>🌧 Even on bad days</h1>
+<p>Thinking about you made things feel lighter.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+<h1>🌈 I tried to ignore these feelings</h1>
+<p>But my heart never listens to logic.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page">
+<h1>💞 Slowly… you became my favorite thought</h1>
+<p>The one my mind returns to again and again.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 9 -->
+<div class="page">
+<h1>🌌 I don’t promise perfection</h1>
+<p>But I promise honesty, effort, and care.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 10 -->
+<div class="page">
+<h1>🫶 I don’t want a perfect story</h1>
+<p>I just want *us* to be real.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 11 -->
+<div class="page">
+<h1>💓 So here I am…</h1>
+<p>Standing with my heart open.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 12 -->
+<div class="page">
+<h1>🌹 Asking you honestly</h1>
+<p>Without pressure… without fear…</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 13 -->
+<div class="page">
+<h1>💖 Will you walk this path with me?</h1>
+<p>Even if it’s slow… even if it’s imperfect.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 14 -->
+<div class="page">
+<h1>🥺 I’m nervous asking this…</h1>
+<p>But my heart is already yours.</p>
+<button onclick="next()">Next ➜</button>
+</div>
+
+<!-- PAGE 15 FINAL -->
+<div class="page">
+<h1>💍 Will you be mine?</h1>
+<button onclick="yes()">YES ❤️</button>
+<button id="no" onmouseover="run()">NO 😳</button>
+</div>
+
+<script>
+let pages = document.querySelectorAll('.page');
+let index = 0;
+
+function next() {
+    pages[index].classList.remove('active');
+    index++;
+    pages[index].classList.add('active');
+}
+
+function run() {
+    let btn = document.getElementById("no");
+    btn.style.left = Math.random()*80 + "vw";
+    btn.style.top = Math.random()*80 + "vh";
+}
+
+function yes() {
+    document.body.innerHTML = `
+    <div style="text-align:center;margin-top:150px;">
+        <h1>💞 You just made my heart complete 💞</h1>
+        <p style="font-size:22px;">I promise to cherish you, always.</p>
+    </div>`;
+}
+
+setInterval(() => {
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💗";
+    h.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+}, 350);
+</script>
+
+</body>
+</html>
